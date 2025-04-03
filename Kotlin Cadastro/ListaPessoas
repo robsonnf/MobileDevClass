@@ -1,0 +1,38 @@
+package org.kotlinlang.play
+
+data class Pessoa(val nome: String, val idade: Double, val cpf: String)
+
+fun main() {
+
+    val listaPessoa = mutableListOf<Pessoa>()
+    var contadorPessoas = 0 // Inicializa o contador
+
+    println("Digite seu nome:")
+    val nome = readLine() ?: ""
+
+    println("Digite sua Idade:")
+    val idade = readLine()?.toDoubleOrNull() ?: 0.0
+
+    println("Digite seu CPF:")
+    val cpf = readLine() ?: ""
+
+    println("Olá, $nome! Sua idade é: $idade. Seu CPF é: $cpf")
+
+    val pessoa = Pessoa(nome, idade, cpf)
+    listaPessoa.add(pessoa)
+    contadorPessoas++
+
+    println("Número de pessoas na Lista: $contadorPessoas")
+
+    for (pessoa in listaPessoa) {
+        println(pessoa) // Imprime cada pessoa na lista
+    }
+
+    if (idade >= 18) {
+        println("maior de idade")
+    } else {
+        println("menor de idade")
+    }
+
+    println(listaPessoa) // Imprime a lista de pessoas
+}
